@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CharacterService } from './services/character/character.service';
-
-
+import { CharacterComponent } from './components/character/character.component';
 
 @NgModule({
-  declarations: [],
-  providers: [
-    CharacterService
+  providers: [CharacterService],
+  declarations: [
+    CharacterComponent
   ],
   imports: [
     CommonModule
