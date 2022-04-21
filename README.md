@@ -1,5 +1,18 @@
 # MyMarvelApiGui
 
+## Dev notes
+
+This project is a GUI for the official Marvel's API oriented to a featured character (In this case Spider-Man (Stan Lee), as it has description).
+* [*] environment 
+* [*] interceptor for api calls 
+* [*] shared module 
+* [*] character service
+* [ ] core module
+* [ ] master scene -> all comics, each cell thumbnail
+* [ ] detail screen -> random image selected comic + title + description
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
 
 ## Development server
