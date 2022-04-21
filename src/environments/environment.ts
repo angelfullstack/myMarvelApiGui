@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  mvTs:'1000',
+  mvPublicKey:'',
+  mvHash:'',
+  mvUrl:'http://gateway.marvel.com/v1/public',
+  featuredCharacterName:'Spider-Man (Peter Parker)',
+  featuredCharacterID: 1009610,
 };
 
 /*
