@@ -6,8 +6,10 @@ export const environment = {
   production: false,
   mvTs:'1000',
   mvPublicKey:'',
-  mvHash:''
-
+  mvHash:'',
+  mvUrl:'http://gateway.marvel.com/v1/public',
+  featuredCharacterName:'Spider-Man (Peter Parker)',
+  featuredCharacterID: 1009610,
 };
 
 /*
