@@ -8,6 +8,9 @@ import { CharacterComponent } from './components/character/character.component';
   declarations: [
     CharacterComponent
   ],
+  exports: [
+    CharacterComponent
+  ],
   imports: [
     CommonModule
   ]
