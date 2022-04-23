@@ -13,7 +13,7 @@ export class CharacterService {
   getCharacterById(id: number = environment.featuredCharacterID): Observable<any> {
     return this.httpClient.get(`${environment.mvUrl}/characters/${id}`);
   }
-  getComicsByCharacterId(id: number = environment.featuredCharacterID): Observable<any> {
+  getComicsByCharacterId(id: number = environment.featuredCharacterID, limhit:number = 16,offset: number = 0): Observable<any> {
     return this.httpClient.get(`${environment.mvUrl}/characters/${id}/comics`);
   }
 
