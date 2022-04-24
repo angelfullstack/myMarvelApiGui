@@ -1,1 +1,11 @@
-<p>gallery works!</p>
+<section>
+    <ng-container select="selector" *ngIf="galleryData">
+        <ng-container select="selector" *ngFor="let item of galleryData">
+            <article #galleryItem>
+                <h3>{{item.title || item.name}}</h3>
+                <img [src]="item.thumbnail?.path + '.' + item.thumbnail?.extension || null" alt="">
+            </article>
+        </ng-container>
+    </ng-container>
+</section >
+

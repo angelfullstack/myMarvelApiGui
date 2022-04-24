@@ -7,7 +7,7 @@ This project is a GUI for the official Marvel's API oriented to a featured chara
 * [*] interceptor for api calls 
 * [*] shared module 
 * [*] character service
-* [ ] core module
+* [*] core module
 * [ ] master scene -> all comics, each cell thumbnail
 * [ ] detail screen -> random image selected comic + title + description
 

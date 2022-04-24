@@ -13,8 +13,11 @@ export class CharacterService {
   getCharacterById(id: number = environment.featuredCharacterID): Observable<any> {
     return this.httpClient.get(`${environment.mvUrl}/characters/${id}`);
   }
-  getComicsByCharacterId(id: number = environment.featuredCharacterID, limhit:number = 16,offset: number = 0): Observable<any> {
-    return this.httpClient.get(`${environment.mvUrl}/characters/${id}/comics`);
+  getComicsByCharacterId(id: number = environment.featuredCharacterID, offset: number = 0,limit:number = 16): Observable<any> {
+    const params = new HttpParams()
+    .append('offset',offset)
+    .append('limit', limit);
+    return this.httpClient.get(`${environment.mvUrl}/characters/${id}/comics`,{params});
   }
 
   getEventsByCharacterId(id: number = environment.featuredCharacterID): Observable<any> {
