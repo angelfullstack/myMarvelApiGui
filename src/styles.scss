@@ -1,4 +1,4 @@
-@import url(./assets/scss/_variables.scss);
+@import "./assets/scss/_variables.scss";
 /*** The new CSS Reset - version 1.2.0 (last updated 23.7.2021) ***/
 
 /* Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property */
@@ -40,7 +40,7 @@
 
   body {
     font-size: 16px;
-    font-family: 'Fira Sans', sans-serif;
+    font-family: 'Fira Sans', sans-serif; 
   }
 
 
