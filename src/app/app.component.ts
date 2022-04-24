@@ -1,8 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { lastValueFrom } from 'rxjs';
-import { environment } from 'src/environments/environment';
-
-import { CharacterService } from './shared/services/character/character.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',

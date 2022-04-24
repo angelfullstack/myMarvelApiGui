@@ -1,0 +1,16 @@
+<ng-container *ngIf="comicData">
+    <section 
+        class="page"
+        *ngIf="selectedImage">
+        <img [src]="selectedImage.path + '.' + selectedImage.extension || null"  alt="">
+    </section>
+    <section class="info">
+        <article class="description">
+            <ng-container *ngIf="comicData.description">
+                <h2>Description</h2>
+                <p>{{comicData.description}}</p>
+            </ng-container>
+        </article>
+    </section>
+    <button (click)="goBack()">Back</button>
+</ng-container>
