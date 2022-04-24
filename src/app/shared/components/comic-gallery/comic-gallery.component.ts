@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { lastValueFrom, Observable, Subscription, take } from 'rxjs';
 import { CharacterService } from '../../services/character/character.service';
@@ -9,11 +9,12 @@ import { ComicService } from '../../services/comic/comic.service';
   templateUrl: './comic-gallery.component.html',
   styleUrls: ['./comic-gallery.component.scss']
 })
-export class ComicGalleryComponent implements OnInit, OnDestroy {
+export class ComicGalleryComponent implements OnInit, OnDestroy, AfterViewInit {
 
   comics: any[] | undefined;
   comicSub: Subscription | undefined;
   offset: number = 0;
+  offsetSub: Subscription | undefined;
   @Input() characterId: number | undefined;
 
   constructor(
@@ -28,8 +29,14 @@ export class ComicGalleryComponent implements OnInit, OnDestroy {
     });
   }
 
+  ngAfterViewInit(): void {
+    this.offsetSub = this.comicService.offset$.subscribe(offset => {
+      offset ? this.offset = offset : null;
+    });
+  }
   loadComics(loadMore: boolean = false): void {
     loadMore ? this.offset += 20 : null;
+    this.comicService.offset$.next(this.offset);
     this.comicSub?.unsubscribe();
     this.comicSub = this.characterService.getComicsByCharacterId(this.characterId, this.offset).subscribe({
       next: (res) => {
@@ -50,9 +57,9 @@ export class ComicGalleryComponent implements OnInit, OnDestroy {
   }
 
   manageGalleryItemEmitter(evt: any) {
-    (evt && evt.itemId) ? this.router.navigate(['/comic',evt.itemId]) : null;
+    (evt && evt.itemId) ? this.router.navigate(['/comic', evt.itemId]) : null;
     if (evt && evt.itemId) {
-        this.router.navigate(['/comic',evt.itemId]);
+      this.router.navigate(['/comic', evt.itemId]);
     }
   }
 

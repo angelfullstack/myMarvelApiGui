@@ -43,4 +43,42 @@
     font-family: 'Fira Sans', sans-serif; 
   }
 
+  h1{
+  }
+  
+  h2,h3{
+    font-weight: 700;
+  }
+  
+  h1{
+    font-weight: 900;
+    font-size: $font-elephant;
+  }
+
+  h2{
+    font-size: $font-hippo;
+  }
+
+  h3{
+    font-size: $font-horse
+  }
+
+  p{
+    font-size: $font-human;
+  }
+
+  .img-cont{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    img{
+        display:block;
+        width: 100%;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+  }
+}
+
 
