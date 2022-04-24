@@ -1,5 +1,6 @@
 <h2>Comic gallery</h2>
 <app-gallery 
     [galleryDataInput]="comics"
-    (galleryEmitter)="manageGalleryEmitter($event)"   
+    (galleryEmitter)="manageGalleryEmitter($event)"  
+    (galleryItemEmitter)="manageGalleryItemEmitter($event)" 
 ></app-gallery>

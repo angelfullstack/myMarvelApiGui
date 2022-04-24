@@ -9,6 +9,7 @@ export class GalleryComponent implements OnInit, OnChanges {
 @Input() galleryDataInput: any;
 galleryData: any;
 @Output() galleryEmitter = new EventEmitter<string>();
+@Output() galleryItemEmitter = new EventEmitter<any>();
 @ViewChildren("galleryItem") galleryItems: QueryList<ElementRef> = new QueryList<ElementRef>();
 
 @HostListener("window:scroll", ['$event'])
@@ -45,6 +46,11 @@ galleryData: any;
 
  loadMore():void {
   this.galleryEmitter.emit('load_more');
+ }
+
+ manageItemClick(item:any):void {
+    console.log(item)
+    this.galleryItemEmitter.emit({itemId: item.id});
  }
 
 }   
