@@ -1,1 +1,6 @@
-<p>featured-comic works!</p>
+
+<h1>{{comic?.title}}</h1>
+<app-comic 
+    *ngIf="comic"
+    [comicData]="comic"
+></app-comic>

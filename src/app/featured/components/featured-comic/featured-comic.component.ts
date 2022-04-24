@@ -1,7 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { CharacterService } from 'src/app/shared/services/character/character.service';
 import { ComicService } from 'src/app/shared/services/comic/comic.service';
 
 @Component({
@@ -38,7 +37,7 @@ export class FeaturedComicComponent implements OnInit, OnDestroy {
     console.log('comicId',comicId)
     this.subs.push(this.comicService.getComicById(comicId).subscribe({
       next: (res) => {
-        console.log('comic',res);
+        this.comic = res?.data?.results?.[0];
       }, error: (err) => {
         // TODO handle error
       }
