@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 export class ComicService {
   fetchedComics$: BehaviorSubject<any> = new BehaviorSubject(null);
   lastItemId$: BehaviorSubject<any> = new BehaviorSubject(null);
+  offset$: BehaviorSubject<any> = new BehaviorSubject(null);
 
   constructor(private httpClient: HttpClient) {}
   getComicById(id: number): Observable<any> {
