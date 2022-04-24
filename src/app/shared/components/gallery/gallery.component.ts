@@ -19,8 +19,10 @@ galleryData: any;
 lastItemSub: Subscription | undefined;
 
 @HostListener("window:scroll", ['$event'])
-  check($event:Event){
-    if( !this.isLoading && this.galleryItems && this.galleryItems.last && window.scrollY  > this.galleryItems.last.nativeElement.offsetTop - window.innerHeight/2){
+check($event:Event){
+    // console.log(this.galleryItems.last.nativeElement.offsetTop -  window.outerHeight, window.scrollY);
+    // console.log(this.galleryItems.last.nativeElement.getBoundingClientRect());
+    if( !this.isLoading && this.galleryItems && this.galleryItems.last && window.scrollY  > this.galleryItems.last.nativeElement.offsetTop - window.innerHeight/2 - this.galleryItems.last.nativeElement.getBoundingClientRect().height) {
       this.isLoading=true; 
       this.loadMore();
     }
@@ -45,9 +47,6 @@ lastItemSub: Subscription | undefined;
         this.galleryData = this.galleryDataInput;
       } else if ( this.galleryData && this.galleryDataInput[0].id != this.galleryData[0].id) {
         this.galleryData = [...this.galleryData,...this.galleryDataInput];
-        if(this.type === 'comic'){
-          
-        }
       }
       this.comicService.fetchedComics$.next(this.galleryData);
       this.isLoading = false;

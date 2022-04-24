@@ -1,5 +1,24 @@
 # MyMarvelApiGui
 
+## Important
+
+Before execute fill src/environments/environment.ts values from mvPublicKey and mvHash properties with your public key and hash obtained from your Marvel API credentials. Hash is generated with MD5 using ts=1000, public key and private key.  
+
+Example:
+
+```javascript
+export const environment = {
+  production: true,
+  secure: false,
+  mvTs:'1000',
+  mvPublicKey:'<your pubicKey>',
+  mvHash:'<your md5 hash>',
+  mvUrl:'http://gateway.marvel.com/v1/public',
+  featuredCharacterName:'Spider-Man (Peter Parker)',
+  featuredCharacterID: 1009610,
+};
+```
+
 ## Dev notes
 
 This project is a GUI for the official Marvel's API oriented to a featured character (In this case Spider-Man (Stan Lee), as it has description).
