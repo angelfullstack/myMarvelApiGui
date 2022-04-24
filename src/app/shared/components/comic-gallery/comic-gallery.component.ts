@@ -1,7 +1,8 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { lastValueFrom, Observable, Subscription, take } from 'rxjs';
 import { CharacterService } from '../../services/character/character.service';
+import { ComicService } from '../../services/comic/comic.service';
 
 @Component({
   selector: 'app-comic-gallery',
@@ -9,17 +10,22 @@ import { CharacterService } from '../../services/character/character.service';
   styleUrls: ['./comic-gallery.component.scss']
 })
 export class ComicGalleryComponent implements OnInit, OnDestroy {
+
   comics: any[] | undefined;
   comicSub: Subscription | undefined;
   offset: number = 0;
   @Input() characterId: number | undefined;
+
   constructor(
     private characterService: CharacterService,
+    private comicService: ComicService,
     private router: Router
   ) { }
 
-  ngOnInit(): void {
-    this.loadComics();
+  async ngOnInit(): Promise<void> {
+    this.comicService.fetchedComics$.pipe(take(1)).subscribe(res => {
+      res ? this.comics  = res : this.loadComics();
+    });
   }
 
   loadComics(loadMore: boolean = false): void {
@@ -30,17 +36,14 @@ export class ComicGalleryComponent implements OnInit, OnDestroy {
         res?.data?.results && res.data.results.length > 0
           ? this.comics = res.data.results
           : null;
-        console.log(this.comics);
       },
       error: (err) => {
         // TODO handle error
       }
     });
-    console.log(this.comicSub);
   }
 
   manageGalleryEmitter(evt: any) {
-    console.log(evt)
     if (evt === 'load_more') {
       this.loadComics(true);
     }
@@ -48,6 +51,9 @@ export class ComicGalleryComponent implements OnInit, OnDestroy {
 
   manageGalleryItemEmitter(evt: any) {
     (evt && evt.itemId) ? this.router.navigate(['/comic',evt.itemId]) : null;
+    if (evt && evt.itemId) {
+        this.router.navigate(['/comic',evt.itemId]);
+    }
   }
 
   ngOnDestroy(): void {

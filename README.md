@@ -15,7 +15,7 @@ This project is a GUI for the official Marvel's API oriented to a featured chara
 * [ ] login component -> publicKey and hash as credentials
 * [ ] mobile first style
 * [ ] friendly URL
-* [ ] Save gallery state (items, last focused item). redux or service ?
+* [*] Save gallery state (items, last focused item). redux or service ?
 
 
 

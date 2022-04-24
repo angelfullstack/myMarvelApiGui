@@ -34,7 +34,6 @@ export class FeaturedComicComponent implements OnInit, OnDestroy {
   }
 
   loadComic(comicId:number): void{
-    console.log('comicId',comicId)
     this.subs.push(this.comicService.getComicById(comicId).subscribe({
       next: (res) => {
         this.comic = res?.data?.results?.[0];

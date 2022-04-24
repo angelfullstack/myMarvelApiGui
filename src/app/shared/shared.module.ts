@@ -25,6 +25,6 @@ import { ComicComponent } from './components/comic/comic.component';
   ],
   imports: [
     CommonModule
-  ]
+  ],
 })
 export class SharedModule { }

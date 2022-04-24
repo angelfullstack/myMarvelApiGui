@@ -16,29 +16,16 @@ export class CharacterComponent implements OnInit {
   constructor(private characterService: CharacterService) { }
 
  async ngOnInit(): Promise<void> {
-
-    // const character = await lastValueFrom(this.characterService.getCharacterById(this.characterId));
-    // console.log(character)
-
-    // this.characterService.getCharactersByName(this.characterName).subscribe({
-    //   next: (val) => console.log(val),
-    //   error: (err) => console.log(err)
-    // }
-    // );
-
     this.characterService.getCharacterById(this.characterId).subscribe({
       next: (res)=> {
         res?.data?.results && res.data.results.length > 0 
         ? this.character = res.data.results[0] 
         : null;
-        console.log(this.character)
       },
       error: (err) => {
         // TODO Manage Error
       }
     })
-
-    
   }
 
 }

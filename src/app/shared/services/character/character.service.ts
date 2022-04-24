@@ -1,6 +1,6 @@
 import { HttpClient, HttpEvent, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,8 @@ export class CharacterService {
   constructor(private httpClient: HttpClient) {
 
   }
+
+
   getCharacterById(id: number = environment.featuredCharacterID): Observable<any> {
     return this.httpClient.get(`${environment.mvUrl}/characters/${id}`);
   }
