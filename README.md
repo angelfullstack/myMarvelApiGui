@@ -7,9 +7,15 @@ This project is a GUI for the official Marvel's API oriented to a featured chara
 * [*] interceptor for api calls 
 * [*] shared module 
 * [*] character service
-* [ ] core module
-* [ ] master scene -> all comics, each cell thumbnail
-* [ ] detail screen -> random image selected comic + title + description
+* [*] core module
+* [*] master scene -> all comics, each cell thumbnail
+* [*] detail screen -> random image selected comic + title + description
+* [*] infinite-scroll
+* [ ] nav
+* [ ] login component -> publicKey and hash as credentials
+* [ ] mobile first style
+* [ ] friendly URL
+* [*] Save gallery state (items, last focused item). redux or service ?
 
 
 
