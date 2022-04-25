@@ -1,16 +1,19 @@
 <ng-container *ngIf="comicData">
-    <section 
-        class="page"
-        *ngIf="selectedImage">
-        <img [src]="selectedImage.path + '.' + selectedImage.extension || null"  alt="">
-    </section>
-    <section class="info">
-        <article class="description">
-            <ng-container *ngIf="comicData.description">
-                <h2>Description</h2>
-                <p>{{comicData.description}}</p>
-            </ng-container>
-        </article>
-    </section>
-    <button (click)="goBack()">Back</button>
+   <main class="comic-cont">
+       <section class="page" *ngIf="selectedImage">
+                <h1>{{comicData?.title}}</h1>
+                <figure class="img-cont">
+                    <img [src]="selectedImage.path + '.' + selectedImage.extension || null" alt="">
+                </figure>
+            </section>
+            <section class="info">
+                <article class="description">
+                    <ng-container *ngIf="comicData.description">
+                        <h2>Description</h2>
+                        <p>{{comicData.description}}</p>
+                    </ng-container>
+                </article>
+            </section>
+            <button (click)="goBack()">Back to gallery</button>
+   </main>
 </ng-container>
