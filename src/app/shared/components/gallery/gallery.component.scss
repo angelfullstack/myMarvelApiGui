@@ -3,15 +3,15 @@
     flex-flow: row wrap;
     .gallery-item{
         width:50%;
-        height: 50vh;
+        height: 70vw;
         position:relative;
         .img-cont{
             position: absolute;
-            height: 50vh;
+            height: 70vw;
             width:100%;
             img{
-                height:100%;
-                width:auto;
+                height:auto;
+                width:100%;
             }
         }
         h3{
@@ -48,6 +48,18 @@
                     content: '...';
                 }
             }      
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .gallery-cont{
+        .gallery-item{
+            width:calc(100% / 3);
+            height: 50vw;
+            .img-cont{
+                height: 50vw;
+            }
         }
     }
 }
