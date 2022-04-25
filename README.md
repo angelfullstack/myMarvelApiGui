@@ -4,7 +4,7 @@
 
 Before execute fill src/environments/environment.ts values from mvPublicKey and mvHash properties with your public key and hash obtained from your Marvel API credentials. Hash is generated with MD5 using ts=1000, public key and private key.  
 
-Example:
+environment.ts example:
 
 ```javascript
 export const environment = {
@@ -32,9 +32,12 @@ This project is a GUI for the official Marvel's API oriented to a featured chara
 * [*] infinite-scroll
 * [ ] nav
 * [ ] login component -> publicKey and hash as credentials
-* [ ] mobile first style
+* [*] mobile first style
+* [ ] landscape and desktop style
 * [ ] friendly URL
 * [*] Save gallery state (items, last focused item). redux or service ?
+* [ ] Marvel attribution
+* [ ] Loaders
 
 
 

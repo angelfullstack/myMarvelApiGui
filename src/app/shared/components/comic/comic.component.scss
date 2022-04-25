@@ -1,2 +1,48 @@
 
 @import "../../../../assets/scss/_variables.scss";
+
+.comic-cont {
+    overflow: hidden;
+    width: 100%;
+    .page{
+        display: flex;
+        min-height: 80vh;
+        position:relative;
+        .img-cont {
+            top:0;
+            height: 80vh;
+            position: absolute;
+            img{
+                top:0;
+                transform: initial;
+                left:0;
+            }
+        }
+        h1 {
+            z-index: 1000;
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: $secondary-alpha-color;
+            color: $white;
+            padding: 2rem;
+        }
+    }
+    .description{
+        padding:2rem;
+        color: $white;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .character-cont {
+        .hero {
+            min-height: 90vh;
+            .img-cont {
+                height: 90vh;
+            }
+        }
+    }
+}

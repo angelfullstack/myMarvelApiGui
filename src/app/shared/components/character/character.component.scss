@@ -1,22 +1,43 @@
 @import '../../../../assets/scss/variables';
 
 .character-cont {
-    position:relative;
-    display: flex;
-    min-height: 50vh;
-    .img-cont{
-        height: 50vh;
-        position: absolute;
-    }
-    h1{
-        z-index:1000;
-        position:absolute;
-        width:100%;
-        top:50%;
-        left:50%;
-        transform: translate(-50%,-50%);
-        background:  $secondary-alpha-color;
-        color: $white;
-        padding: 1em;
+    position: relative;
+    .hero {
+        display: flex;
+        min-height: 50vh;
+        position:relative;
+        .img-cont {
+            height: 50vh;
+            position: absolute;
         }
+        h1 {
+            z-index: 1000;
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: $secondary-alpha-color;
+            color: $white;
+            padding: 2rem;
+        }
+    }
+    .history {
+        z-index: 4;
+        background: $white-alpha;
+        padding: 2rem;
+        color: $secondary-dark-color;
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .character-cont {
+        .hero {
+            min-height: 90vh;
+            .img-cont {
+                height: 90vh;
+            }
+        }
+    }
 }
